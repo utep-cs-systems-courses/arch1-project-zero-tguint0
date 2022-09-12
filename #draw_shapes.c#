@@ -28,41 +28,31 @@ void print_triangle(int leftCol, int size)
   }
 }
 
-//Prints an arrow
+// Prints an arrow with specified height and left edge at at col leftCol.
 void print_arrow(int leftCol, int size){
-  bool centerFound = false;
+  int leftCol = 10;
+  int size = 2;
   int centerSpaces;
-  for(int  row = 0;row <= size; row++){
+  bool centerFound = false;
+  for(int row = 0; row <= size; row++){
     int minCol = leftCol + size - row; int maxCol = leftCol + size + row;
     int col;
-    for(col = 0; col < minCol; col++ ){
+    for(col = 0; col < minCol; col++){
       putchar(' ');
     }
-    if(!centerFound ){
+    if(!centerFound){
       centerSpaces = col + 1;
       centerFound = true;
     }
 
     for( ;col <= maxCol; col++){
-      if ((col == minCol || col == maxCol)&& row != size ){
-	putchar('*' );
-      }else if(row == size ){
-	putchar('*' );
-      }else{
-	putchar(' ');
-      }
+      if((col == minCol || col == maxCol ) && row != size ){
+	putchar('*');
+      }else if(row == size)
+	{}
+
     }
-    putchar('\n' );
   }
 
-  for(int row = 0; row <= size; row++){
-    for(int col = 0; col < centerSpaces; col++ ){
-      if(col == centerSpaces - 1 ){
-	putchar('*');
-      }else{
-	putchar(' ');
-      }
-    }
-    putchar('\n');
-  } 
+
 }
